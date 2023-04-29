@@ -13,7 +13,7 @@ namespace CAProject.Service.Services.Implementations
     public class BookService : IBookService
     {
         private readonly BookWriterRepository _repository = new BookWriterRepository();
-        public async Task<string> CreateAsync(int id, string name, double price, double discountprice, BookCategory category)
+        public async Task<string> CreateAsync(int id, string name, double price, double discountprice, BookCategory category, bool instock)
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
@@ -22,7 +22,7 @@ namespace CAProject.Service.Services.Implementations
             while (!string.IsNullOrWhiteSpace(await ValidateProduct(name, price, discountprice)))
             { return await ValidateProduct(name, price, discountprice); }
 
-            Book book = new Book(name, price, discountprice, category, bookwriter);
+            Book book = new Book(name, price, discountprice, category, bookwriter,instock);
 
             bookwriter.Books.Add(book);
 
@@ -83,7 +83,7 @@ namespace CAProject.Service.Services.Implementations
             return book;
         }
 
-        public async Task<string> UpdateAsync(int wId, int bId, string name, double price, double discountprice)
+        public async Task<string> UpdateAsync(int wId, int bId, string name, double price, double discountprice, bool instock)
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
@@ -100,6 +100,7 @@ namespace CAProject.Service.Services.Implementations
             book.Name = name;
             book.Price = price;
             book.DiscountPrice = discountprice;
+            book.inStock = instock;
 
             Console.ForegroundColor = ConsoleColor.Green;
             return "Book is succesfully updated";
@@ -119,5 +120,36 @@ namespace CAProject.Service.Services.Implementations
 
             return null;
         }
+
+        public async Task<string> BuyBookAsync(int wId, int bId)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            BookWriter bookwriter = await _repository.GetAsync(w => w.Id == wId);
+
+            if (bookwriter == null)
+            {
+                Console.WriteLine("Author is not found");
+                return null;
+            }
+
+            Book book = bookwriter.Books.FirstOrDefault(b => b.Id == bId);
+
+            if (book == null)
+            {
+                Console.WriteLine("Book is not found");
+                return null;
+            }
+
+            if (book.inStock == false)
+            {
+                return "Book is not in stock. You couldn't buy it";
+            }
+           
+                Console.ForegroundColor = ConsoleColor.Green;
+                return "Book is in stock. You can buy it!";
+            
+        }
     }
 }
+      

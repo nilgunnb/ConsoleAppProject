@@ -19,7 +19,8 @@ namespace CAProject.Core.Models.Minor
         public BookCategory Category { get; set; }
         public BookWriter Writer { get; set; }
 
-        public Book(string name, double price, double discountprice, BookCategory category, BookWriter writer)
+        public bool inStock { get; set; }
+        public Book(string name, double price, double discountprice, BookCategory category, BookWriter writer, bool instock)
         {
             _id++;
             Id = _id;
@@ -28,16 +29,17 @@ namespace CAProject.Core.Models.Minor
             DiscountPrice = discountprice;
             Category = category;
             Writer = writer;
+            inStock = instock;
         }
 
         public override string ToString()
         {
             if (DiscountPrice < Price)
             {
-                return $"There is  {DiscountPrice / Price * 100}% discount! Title: {Name}, Price: {DiscountPrice}, Genre: {Category}, Author: {Writer}";
+                return $"There is  {DiscountPrice / Price * 100}% discount! ID: {Id}, Title: {Name}, Price: {DiscountPrice}, Genre: {Category}, Author: {Writer}, In Sale: {inStock}";
             }
 
-            return $"Title: {Name}, Price: {Price}, Genre: {Category}, Author: {Writer}";
+            return $"ID: {Id}, Title: {Name}, Price: {Price}, Genre: {Category}, Author: {Writer}, In Sale: {inStock}";
         }
     }
 }

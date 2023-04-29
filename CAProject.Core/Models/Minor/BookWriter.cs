@@ -31,7 +31,7 @@ namespace CAProject.Core.Models.Minor
 
         public override string ToString()
         {
-            return $"Name: {Name}, Surname: {Surname}, Age: {Age}, CreateDate: {CreatedDate}, UpdatedDate: {UpdatedDate}";
+            return $"ID: {Id}, Name: {Name}, Surname: {Surname}, Age: {Age}, CreateDate: {CreatedDate}, UpdatedDate: {UpdatedDate}";
         }
     }
 }

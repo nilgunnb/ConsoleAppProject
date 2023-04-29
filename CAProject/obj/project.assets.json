@@ -1,11 +1,66 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "CAProject.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CAProject.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CAProject.Core.dll": {}
+        }
+      },
+      "CAProject.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CAProject.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CAProject.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CAProject.Data.dll": {}
+        }
+      },
+      "CAProject.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CAProject.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CAProject.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CAProject.Service.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CAProject.Core/1.0.0": {
+      "type": "project",
+      "path": "../CAProject.Core/CAProject.Core.csproj",
+      "msbuildProject": "../CAProject.Core/CAProject.Core.csproj"
+    },
+    "CAProject.Data/1.0.0": {
+      "type": "project",
+      "path": "../CAProject.Data/CAProject.Data.csproj",
+      "msbuildProject": "../CAProject.Data/CAProject.Data.csproj"
+    },
+    "CAProject.Service/1.0.0": {
+      "type": "project",
+      "path": "../CAProject.Service/CAProject.Service.csproj",
+      "msbuildProject": "../CAProject.Service/CAProject.Service.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "CAProject.Service >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\babay\\.nuget\\packages\\": {}
@@ -33,7 +88,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\babay\\source\\repos\\CAProject\\CAProject.Service\\CAProject.Service.csproj": {
+              "projectPath": "C:\\Users\\babay\\source\\repos\\CAProject\\CAProject.Service\\CAProject.Service.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
