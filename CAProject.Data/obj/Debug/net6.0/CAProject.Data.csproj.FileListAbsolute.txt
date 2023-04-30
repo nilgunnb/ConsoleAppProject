@@ -1,0 +1,15 @@
+C:\Users\babay\source\repos\CAProject\CAProject.Data\bin\Debug\net6.0\CAProject.Data.deps.json
+C:\Users\babay\source\repos\CAProject\CAProject.Data\bin\Debug\net6.0\CAProject.Data.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Data\bin\Debug\net6.0\CAProject.Data.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Data\bin\Debug\net6.0\CAProject.Core.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Data\bin\Debug\net6.0\CAProject.Core.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\CAProject.Data.csproj.AssemblyReference.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\CAProject.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\CAProject.Data.AssemblyInfoInputs.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\CAProject.Data.AssemblyInfo.cs
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\CAProject.Data.csproj.CoreCompileInputs.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\CAProject.Data.csproj.CopyComplete
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\CAProject.Data.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\refint\CAProject.Data.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\CAProject.Data.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Data\obj\Debug\net6.0\ref\CAProject.Data.dll

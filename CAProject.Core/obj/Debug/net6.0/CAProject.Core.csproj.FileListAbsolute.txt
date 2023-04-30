@@ -1,0 +1,12 @@
+C:\Users\babay\source\repos\CAProject\CAProject.Core\bin\Debug\net6.0\CAProject.Core.deps.json
+C:\Users\babay\source\repos\CAProject\CAProject.Core\bin\Debug\net6.0\CAProject.Core.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Core\bin\Debug\net6.0\CAProject.Core.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\CAProject.Core.csproj.AssemblyReference.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\CAProject.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\CAProject.Core.AssemblyInfoInputs.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\CAProject.Core.AssemblyInfo.cs
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\CAProject.Core.csproj.CoreCompileInputs.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\CAProject.Core.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\refint\CAProject.Core.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\CAProject.Core.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Core\obj\Debug\net6.0\ref\CAProject.Core.dll

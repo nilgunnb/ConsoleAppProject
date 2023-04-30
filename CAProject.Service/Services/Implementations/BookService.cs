@@ -19,8 +19,8 @@ namespace CAProject.Service.Services.Implementations
 
             BookWriter bookwriter = await _repository.GetAsync(w => w.Id == id);
 
-            while (!string.IsNullOrWhiteSpace(await ValidateProduct(name, price, discountprice)))
-            { return await ValidateProduct(name, price, discountprice); }
+            while (!string.IsNullOrWhiteSpace(await ValidateBook(name, price, discountprice)))
+            { return await ValidateBook(name, price, discountprice); }
 
             Book book = new Book(name, price, discountprice, category, bookwriter,instock);
 
@@ -92,8 +92,8 @@ namespace CAProject.Service.Services.Implementations
             if (bookwriter == null)
             { return "Author is not found"; }
 
-            while (!string.IsNullOrWhiteSpace(await ValidateProduct(name, price, discountprice)))
-            { return await ValidateProduct(name, price, discountprice); }
+            while (!string.IsNullOrWhiteSpace(await ValidateBook(name, price, discountprice)))
+            { return await ValidateBook(name, price, discountprice); }
 
             Book book = bookwriter.Books.FirstOrDefault(b => b.Id == bId);
 
@@ -101,12 +101,13 @@ namespace CAProject.Service.Services.Implementations
             book.Price = price;
             book.DiscountPrice = discountprice;
             book.inStock = instock;
+            book.UpdatedDate = DateTime.UtcNow.AddHours(4);
 
             Console.ForegroundColor = ConsoleColor.Green;
             return "Book is succesfully updated";
         }
 
-        private async Task<string> ValidateProduct(string name, double price, double discountprice)
+        private async Task<string> ValidateBook(string name, double price, double discountprice)
         {
 
             while (string.IsNullOrWhiteSpace(name))
@@ -143,7 +144,7 @@ namespace CAProject.Service.Services.Implementations
 
             if (book.inStock == false)
             {
-                return "Book is not in stock. You couldn't buy it";
+                return "Book is not in stock. You can't buy it";
             }
            
                 Console.ForegroundColor = ConsoleColor.Green;

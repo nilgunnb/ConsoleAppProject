@@ -1,0 +1,62 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CAProject/1.0.0": {
+        "dependencies": {
+          "CAProject.Service": "1.0.0"
+        },
+        "runtime": {
+          "CAProject.dll": {}
+        }
+      },
+      "CAProject.Core/1.0.0": {
+        "runtime": {
+          "CAProject.Core.dll": {}
+        }
+      },
+      "CAProject.Data/1.0.0": {
+        "dependencies": {
+          "CAProject.Core": "1.0.0"
+        },
+        "runtime": {
+          "CAProject.Data.dll": {}
+        }
+      },
+      "CAProject.Service/1.0.0": {
+        "dependencies": {
+          "CAProject.Data": "1.0.0"
+        },
+        "runtime": {
+          "CAProject.Service.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CAProject/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CAProject.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CAProject.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CAProject.Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

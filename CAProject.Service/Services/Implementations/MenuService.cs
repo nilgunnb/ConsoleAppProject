@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CAProject.Service.Services.Implementations
@@ -24,6 +25,11 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.WriteLine("Please, enter your username");
             string username = Console.ReadLine();
+            while (string.IsNullOrWhiteSpace(username))
+            {
+                Console.WriteLine("Please, enter valid Username");
+                username = Console.ReadLine();
+            }
             Console.WriteLine("Please, enter your password");
             string password = Console.ReadLine();
 
@@ -33,6 +39,7 @@ namespace CAProject.Service.Services.Implementations
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Your username or password is incorrect. Please, enter your account details again");
                 IsAdmin = false;
             }
@@ -51,7 +58,7 @@ namespace CAProject.Service.Services.Implementations
                 Thread.Sleep(100);
                 Console.Write(item);
             }
-
+            Console.WriteLine(" ");
             Console.WriteLine("0.Close App");
             Console.WriteLine("1.Create Author");
             Console.WriteLine("2.Show Authors");
@@ -308,6 +315,7 @@ namespace CAProject.Service.Services.Implementations
             string surname = Console.ReadLine();
             Console.WriteLine("Please, add new Age");
             int.TryParse(Console.ReadLine(), out int age);
+
             string message = await bookwriterService.UpdateAsync(id, name, surname, age);
 
             Console.WriteLine(message);
@@ -376,21 +384,23 @@ namespace CAProject.Service.Services.Implementations
             int.TryParse(Console.ReadLine(), out int wId);
             Console.WriteLine("Please, enter Book's id");
             int.TryParse(Console.ReadLine(), out int bId);
+
             Console.WriteLine("Please, add new Title");
             string name = Console.ReadLine();
-
+                        
             Console.WriteLine("Please, add new Price");
             int.TryParse(Console.ReadLine(), out int price);
-
+                     
             Console.WriteLine("Please, add new Discount Price");
             int.TryParse(Console.ReadLine(), out int discountprice);
-
+                      
             Console.WriteLine("Please, add if book is in stock or not");
             bool.TryParse(Console.ReadLine(), out bool instock);
 
             string message = await bookService.UpdateAsync(wId, bId, name, price, discountprice, instock);
-
             Console.WriteLine(message);
+                
+
         }
 
         private async Task GetBookByBookWriter()

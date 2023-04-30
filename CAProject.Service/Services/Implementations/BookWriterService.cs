@@ -3,6 +3,7 @@ using CAProject.Data.Repositories.BookWriters;
 using CAProject.Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -88,20 +89,14 @@ namespace CAProject.Service.Services.Implementations
         }
         public async Task<string> UpdateAsync(int id, string name, string surname, int age)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            while (string.IsNullOrWhiteSpace(name))
-            { return "Please, add valid Name"; }
-
-            while (string.IsNullOrWhiteSpace(surname))
-            { return "Please, add valid Surname"; }
-
-            while (age <= 0 || age > 160)
-            { return "Please, add valid Age"; }
-
             BookWriter bookwriter = await _repository.GetAsync(w => w.Id == id);
 
+            Console.ForegroundColor= ConsoleColor.Red;
             if (bookwriter == null)
             { return "Author is not found"; }
+
+            while (!string.IsNullOrWhiteSpace(await ValidateBookWriter(name, surname, age)))
+            { return await ValidateBookWriter(name, surname, age); }
 
             bookwriter.Name = name;
 
@@ -112,6 +107,20 @@ namespace CAProject.Service.Services.Implementations
             Console.ForegroundColor = ConsoleColor.Green;
 
             return "Author is succesfully updated!";
+        }
+        private async Task<string> ValidateBookWriter(string name, string surname, int age)
+        {
+
+            while (string.IsNullOrWhiteSpace(name))
+            { return "Please, add valid Name"; }
+
+            while (string.IsNullOrWhiteSpace(surname))
+            { return "Please, add valid Surname"; }
+
+            while (age<=0 || age>160)
+            { return "Please, add valid Age"; }
+
+            return null;
         }
 
     }

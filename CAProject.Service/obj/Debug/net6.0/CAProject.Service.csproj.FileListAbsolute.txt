@@ -1,0 +1,17 @@
+C:\Users\babay\source\repos\CAProject\CAProject.Service\bin\Debug\net6.0\CAProject.Service.deps.json
+C:\Users\babay\source\repos\CAProject\CAProject.Service\bin\Debug\net6.0\CAProject.Service.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Service\bin\Debug\net6.0\CAProject.Service.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Service\bin\Debug\net6.0\CAProject.Core.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Service\bin\Debug\net6.0\CAProject.Data.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Service\bin\Debug\net6.0\CAProject.Data.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Service\bin\Debug\net6.0\CAProject.Core.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\CAProject.Service.csproj.AssemblyReference.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\CAProject.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\CAProject.Service.AssemblyInfoInputs.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\CAProject.Service.AssemblyInfo.cs
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\CAProject.Service.csproj.CoreCompileInputs.cache
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\CAProject.Service.csproj.CopyComplete
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\CAProject.Service.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\refint\CAProject.Service.dll
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\CAProject.Service.pdb
+C:\Users\babay\source\repos\CAProject\CAProject.Service\obj\Debug\net6.0\ref\CAProject.Service.dll

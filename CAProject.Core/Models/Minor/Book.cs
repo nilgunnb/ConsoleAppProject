@@ -36,10 +36,10 @@ namespace CAProject.Core.Models.Minor
         {
             if (DiscountPrice < Price)
             {
-                return $"There is  {DiscountPrice / Price * 100}% discount! ID: {Id}, Title: {Name}, Price: {DiscountPrice}, Genre: {Category}, Author: {Writer}, In Sale: {inStock}";
+                return $"There is  {DiscountPrice / Price * 100}% discount! ID: {Id}, Title: {Name}, Price: {DiscountPrice}, Genre: {Category}, Author: {Writer}, In Sale: {inStock}, CreatedDate: {CreatedDate}, UpdatedDate: {UpdatedDate}";
             }
 
-            return $"ID: {Id}, Title: {Name}, Price: {Price}, Genre: {Category}, Author: {Writer}, In Sale: {inStock}";
+            return $"ID: {Id}, Title: {Name}, Price: {Price}, Genre: {Category}, Author: {Writer}, In Sale: {inStock}, CreatedDate: {CreatedDate}, UpdatedDate: {UpdatedDate}";
         }
     }
 }
