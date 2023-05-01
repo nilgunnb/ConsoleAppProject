@@ -25,7 +25,7 @@ namespace CAProject.Service.Services.Implementations
         public async Task<bool> Login()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Please, enter your username");
+            Console.WriteLine("Please, enter your Username");
             string username = Console.ReadLine();
             while (string.IsNullOrWhiteSpace(username))
             {
@@ -35,7 +35,7 @@ namespace CAProject.Service.Services.Implementations
                 username = Console.ReadLine();
             }
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Please, enter your password");
+            Console.WriteLine("Please, enter your Password");
             string password = Console.ReadLine();
             while (string.IsNullOrWhiteSpace(password))
             {
