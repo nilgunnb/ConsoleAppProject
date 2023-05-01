@@ -15,12 +15,7 @@ namespace CAProject.Service.Services.Implementations
         private readonly BookWriterRepository _repository = new BookWriterRepository();
         public async Task<string> CreateAsync(int id, string name, double price, double discountprice, BookCategory category, bool instock)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-
             BookWriter bookwriter = await _repository.GetAsync(w => w.Id == id);
-
-            while (!string.IsNullOrWhiteSpace(await ValidateBook(name, price, discountprice)))
-            { return await ValidateBook(name, price, discountprice); }
 
             Book book = new Book(name, price, discountprice, category, bookwriter,instock);
 
@@ -32,9 +27,9 @@ namespace CAProject.Service.Services.Implementations
 
         public async Task<string> DeleteAsync(int wId, int bId)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-
             BookWriter bookwriter = await _repository.GetAsync(w => w.Id == wId);
+
+            Console.ForegroundColor = ConsoleColor.Red;
 
             if (bookwriter == null)
                 return "Book is not found";
@@ -47,10 +42,13 @@ namespace CAProject.Service.Services.Implementations
             bookwriter.Books.Remove(book);
 
             Console.ForegroundColor = ConsoleColor.Green;
+
             return "Book is succesfully deleted!";
         }
         public async Task GetAll()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
             foreach (var item in await _repository.GetAllAsync())
             {
 
@@ -92,9 +90,6 @@ namespace CAProject.Service.Services.Implementations
             if (bookwriter == null)
             { return "Author is not found"; }
 
-            while (!string.IsNullOrWhiteSpace(await ValidateBook(name, price, discountprice)))
-            { return await ValidateBook(name, price, discountprice); }
-
             Book book = bookwriter.Books.FirstOrDefault(b => b.Id == bId);
 
             book.Name = name;
@@ -104,22 +99,7 @@ namespace CAProject.Service.Services.Implementations
             book.UpdatedDate = DateTime.UtcNow.AddHours(4);
 
             Console.ForegroundColor = ConsoleColor.Green;
-            return "Book is succesfully updated";
-        }
-
-        private async Task<string> ValidateBook(string name, double price, double discountprice)
-        {
-
-            while (string.IsNullOrWhiteSpace(name))
-            { return "Please, add valid Name"; }
-
-            while (price <= 0)
-            { return "Please, add valid Price"; }
-
-            while (discountprice > price || discountprice <= 0)
-            { return "Please, add valid Discountrice"; }
-
-            return null;
+            return "Book is succesfully updated!";
         }
 
         public async Task<string> BuyBookAsync(int wId, int bId)
