@@ -102,7 +102,7 @@ namespace CAProject.Service.Services.Implementations
             return "Book is succesfully updated!";
         }
 
-        public async Task<string> BuyBookAsync(int wId, int bId)
+        public async Task<string> BuyBookAsync(int wId, int bId, bool inStock)
         {
             Console.ForegroundColor = ConsoleColor.Red;
 

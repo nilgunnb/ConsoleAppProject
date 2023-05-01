@@ -15,7 +15,9 @@ namespace CAProject.Service.Services.Interfaces
         public Task<string> UpdateAsync(int wId, int bId, string name, double price, double discountprice, bool instock);
         public Task<Book> GetAsync(int wId, int bId);
         public Task GetAll();
-        
+        public Task<string> BuyBookAsync(int wId, int bId, bool inStock);
+
+
     }
 }
 

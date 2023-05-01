@@ -26,23 +26,31 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, enter your Username");
+<<<<<<< HEAD
+            string username = Console.ReadLine().Trim();
+=======
             string username = Console.ReadLine();
+>>>>>>> a5d04abe4f8ecf0e65773adf62ad49c78e061226
             while (string.IsNullOrWhiteSpace(username))
             {
                 Console.ForegroundColor= ConsoleColor.Red;
                 Console.WriteLine("Please, enter valid Username");
                 Console.ForegroundColor = ConsoleColor.White;
-                username = Console.ReadLine();
+                username = Console.ReadLine().Trim();
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, enter your Password");
+<<<<<<< HEAD
+            string password = Console.ReadLine().Trim();
+=======
             string password = Console.ReadLine();
+>>>>>>> a5d04abe4f8ecf0e65773adf62ad49c78e061226
             while (string.IsNullOrWhiteSpace(password))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, enter valid Password");
                 Console.ForegroundColor = ConsoleColor.White;
-                password = Console.ReadLine();
+                password = Console.ReadLine().Trim();
             }
 
             if (Users.Any(x => x.UserName == username && x.Password == password))
@@ -63,13 +71,22 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.ForegroundColor = ConsoleColor.White;
 
-            string sentence = "Welcome to My App!";
-
+            string sentence = @"
+ █     █░▓█████  ██▓     ▄████▄   ▒█████   ███▄ ▄███▓▓█████  ▐██▌ 
+▓█░ █ ░█░▓█   ▀ ▓██▒    ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀  ▐██▌ 
+▒█░ █ ░█ ▒███   ▒██░    ▒▓█    ▄ ▒██░  ██▒▓██    ▓██░▒███    ▐██▌ 
+░█░ █ ░█ ▒▓█  ▄ ▒██░    ▒▓▓▄ ▄██▒▒██   ██░▒██    ▒██ ▒▓█  ▄  ▓██▒ 
+░░██▒██▓ ░▒████▒░██████▒▒ ▓███▀ ░░ ████▓▒░▒██▒   ░██▒░▒████▒ ▒▄▄  
+░ ▓░▒ ▒  ░░ ▒░ ░░ ▒░▓  ░░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ░  ░░░ ▒░ ░ ░▀▀▒ 
+                                    
+";
             foreach (var item in sentence)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(1);
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.Write(item);
             }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" ");
             Console.WriteLine("0.Close App");
             Console.WriteLine("1.Create Author");
@@ -83,8 +100,9 @@ namespace CAProject.Service.Services.Implementations
             Console.WriteLine("9.Get Book by Author");
             Console.WriteLine("10.Remove Book");
             Console.WriteLine("11.Show All Books");
+            Console.WriteLine("12. Buy book");
 
-            string Request = Console.ReadLine();
+            string Request = Console.ReadLine().Trim();
 
             while (Request != "0")
             {
@@ -154,7 +172,11 @@ namespace CAProject.Service.Services.Implementations
 
                         await ShowAllBooks();
                         break;
+                    case "12":
+                        Console.Clear();
 
+                        await BuyBook();
+                        break;
                     default:
                         Console.Clear();
 
@@ -177,6 +199,8 @@ namespace CAProject.Service.Services.Implementations
                 Console.WriteLine("9.Get Book by Author");
                 Console.WriteLine("10.Remove Book");
                 Console.WriteLine("11.Show All Books");
+                Console.WriteLine("12. Buy book");
+
 
                 Request = Console.ReadLine();
             }
@@ -201,7 +225,7 @@ namespace CAProject.Service.Services.Implementations
             Console.WriteLine("5.Show All Books");
             Console.WriteLine("6.Buy Book");
 
-            string Request = Console.ReadLine();
+            string Request = Console.ReadLine().Trim();
 
             while (Request != "0")
             {
@@ -257,7 +281,7 @@ namespace CAProject.Service.Services.Implementations
                 Console.WriteLine("5.Show All Books");
                 Console.WriteLine("6.Buy Book");
 
-                Request = Console.ReadLine();
+                Request = Console.ReadLine().Trim();
             }
         }
 
@@ -265,35 +289,35 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add Name");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine().Trim();
             while (string.IsNullOrWhiteSpace(name))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Name");
                 Console.ForegroundColor = ConsoleColor.White;
-                name = Console.ReadLine();
+                name = Console.ReadLine().Trim();
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add Surname");
-            string surname = Console.ReadLine();
+            string surname = Console.ReadLine().Trim();
             while (string.IsNullOrWhiteSpace(surname))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Surame");
                 Console.ForegroundColor = ConsoleColor.White;
-                surname = Console.ReadLine();
+                surname = Console.ReadLine().Trim();
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add Age");
-            int.TryParse(Console.ReadLine(), out int age);
+            int.TryParse(Console.ReadLine().Trim(), out int age);
             while (age <= 0 || age > 160)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Age");
                 Console.ForegroundColor = ConsoleColor.White;
-                int.TryParse(Console.ReadLine(), out age);
+                int.TryParse(Console.ReadLine().Trim(), out age);
             }
-
+            
             string message = await bookwriterService.CreateAsync(name, surname, age);
 
             Console.WriteLine(message);
@@ -309,7 +333,7 @@ namespace CAProject.Service.Services.Implementations
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Please, enter Athor's ID");
-            int.TryParse(Console.ReadLine(), out int id);
+            int.TryParse(Console.ReadLine().Trim(), out int id);
 
             BookWriter bookwriter = await bookwriterService.GetAsync(id);
 
@@ -324,7 +348,7 @@ namespace CAProject.Service.Services.Implementations
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Please, enter Author's ID");
-            int.TryParse(Console.ReadLine(), out int id);
+            int.TryParse(Console.ReadLine().Trim(), out int id);
 
             List<Book> books = await bookwriterService.GetAllBooksAsync(id);
 
@@ -344,35 +368,37 @@ namespace CAProject.Service.Services.Implementations
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Please, enter Author's ID");
-            int.TryParse(Console.ReadLine(), out int id);
+            int.TryParse(Console.ReadLine().Trim(), out int id);
+            
             Console.WriteLine("Please, add new Name");
-            string name = Console.ReadLine();
+           string name = Console.ReadLine().Trim();
             while (string.IsNullOrWhiteSpace(name))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Name");
                 Console.ForegroundColor = ConsoleColor.White;
-                name = Console.ReadLine();
+                name = Console.ReadLine().Trim();
             }
+             
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add new Surname");
-            string surname = Console.ReadLine();
+            string surname = Console.ReadLine().Trim();
             while (string.IsNullOrWhiteSpace(surname))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Surame");
                 Console.ForegroundColor = ConsoleColor.White;
-                surname = Console.ReadLine();
+                surname = Console.ReadLine().Trim();
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add new Age");
-            int.TryParse(Console.ReadLine(), out int age);
+            int.TryParse(Console.ReadLine().Trim(), out int age);
             while (age <= 0 || age > 160)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Age");
                 Console.ForegroundColor = ConsoleColor.White;
-                int.TryParse(Console.ReadLine(), out age);
+                int.TryParse(Console.ReadLine().Trim(), out age);
             }
 
             string message = await bookwriterService.UpdateAsync(id, name, surname, age);
@@ -385,7 +411,7 @@ namespace CAProject.Service.Services.Implementations
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Please, enter Author's ID");
-            int.TryParse(Console.ReadLine(), out int id);
+            int.TryParse(Console.ReadLine().Trim(), out int id);
 
             string message = await bookwriterService.DeleteAsync(id);
 
@@ -396,39 +422,39 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add Author's ID");
-            int.TryParse(Console.ReadLine(), out int id);
+            int.TryParse(Console.ReadLine().Trim(), out int id);
             Console.WriteLine("Please, add Title");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine().Trim();
             while (string.IsNullOrWhiteSpace(name))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Title");
                 Console.ForegroundColor = ConsoleColor.White;
-                name = Console.ReadLine();
+                name = Console.ReadLine().Trim();
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add Price");
-            double.TryParse(Console.ReadLine(), out double price);
+            double.TryParse(Console.ReadLine().Trim(), out double price);
             while (price <= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Price");
                 Console.ForegroundColor = ConsoleColor.White;
-                double.TryParse(Console.ReadLine(), out price);
+                double.TryParse(Console.ReadLine().Trim(), out price);
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add DiscountPrice");
-            double.TryParse(Console.ReadLine(), out double discountprice);
+            double.TryParse(Console.ReadLine().Trim(), out double discountprice);
             while (discountprice <= 0 || discountprice > price)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Discount Price");
                 Console.ForegroundColor = ConsoleColor.White;
-                double.TryParse(Console.ReadLine(), out discountprice);
+                double.TryParse(Console.ReadLine().Trim(), out discountprice);
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add if it is in stock or not");
-            bool.TryParse(Console.ReadLine(), out bool instock);
+            bool.TryParse(Console.ReadLine().Trim(), out bool instock);
 
             BookCategory category;
             Console.WriteLine("Please, choose a Category");
@@ -444,7 +470,7 @@ namespace CAProject.Service.Services.Implementations
             {
                 Console.ForegroundColor= ConsoleColor.Red;
                 Console.WriteLine("Please, choose valid Category");
-                int.TryParse(Console.ReadLine(), out categoryindex);
+                int.TryParse(Console.ReadLine().Trim(), out categoryindex);
                 result = Enum.GetName(typeof(BookCategory), categoryindex);
             }
             category = (BookCategory)categoryindex;
@@ -459,42 +485,42 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, enter Author's ID");
-            int.TryParse(Console.ReadLine(), out int wId);
+            int.TryParse(Console.ReadLine().Trim(), out int wId);
             Console.WriteLine("Please, enter Book's id");
-            int.TryParse(Console.ReadLine(), out int bId);
+            int.TryParse(Console.ReadLine().Trim(), out int bId);
 
             Console.WriteLine("Please, add new Title");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine().Trim();
             while (string.IsNullOrWhiteSpace(name))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Title");
                 Console.ForegroundColor = ConsoleColor.White;
-                name = Console.ReadLine();
+                name = Console.ReadLine().Trim();
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add new Price");
-            double.TryParse(Console.ReadLine(), out double price);
+            double.TryParse(Console.ReadLine().Trim(), out double price);
             while (price <= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Price");
                 Console.ForegroundColor = ConsoleColor.White;
-                double.TryParse(Console.ReadLine(), out price);
+                double.TryParse(Console.ReadLine().Trim(), out price);
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add new Discount Price");
-            double.TryParse(Console.ReadLine(), out double discountprice);
+            double.TryParse(Console.ReadLine().Trim(), out double discountprice);
             while (discountprice <= 0 || discountprice > price)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please, add valid Discount Price");
                 Console.ForegroundColor = ConsoleColor.White;
-                double.TryParse(Console.ReadLine(), out discountprice);
+                double.TryParse(Console.ReadLine().Trim(), out discountprice);
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add if book is in stock or not");
-            bool.TryParse(Console.ReadLine(), out bool instock);
+            bool.TryParse(Console.ReadLine().Trim(), out bool instock);
 
             string message = await bookService.UpdateAsync(wId, bId, name, price, discountprice, instock);
             Console.WriteLine(message);
@@ -506,9 +532,9 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add Author's ID");
-            int.TryParse(Console.ReadLine(), out int wId);
+            int.TryParse(Console.ReadLine().Trim(), out int wId);
             Console.WriteLine("Please, add Book's ID");
-            int.TryParse(Console.ReadLine(), out int bId);
+            int.TryParse(Console.ReadLine().Trim(), out int bId);
 
             Book book = await bookService.GetAsync(wId, bId);
 
@@ -523,9 +549,9 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add Author's ID");
-            int.TryParse(Console.ReadLine(), out int wId);
+            int.TryParse(Console.ReadLine().Trim(), out int wId);
             Console.WriteLine("Please,add Book's ID");
-            int.TryParse(Console.ReadLine(), out int bId);
+            int.TryParse(Console.ReadLine().Trim(), out int bId);
 
             string message = await bookService.DeleteAsync(wId, bId);
 
@@ -536,11 +562,11 @@ namespace CAProject.Service.Services.Implementations
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please, add Author's ID");
-            int.TryParse(Console.ReadLine(), out int wId);
+            int.TryParse(Console.ReadLine().Trim(), out int wId);
             Console.WriteLine("Please, add Book's ID");
-            int.TryParse(Console.ReadLine(), out int bId);
-
-            string message = await bookService.BuyBookAsync(wId, bId);
+            int.TryParse(Console.ReadLine().Trim(), out int bId);
+            bool.TryParse(Console.ReadLine().Trim(), out bool inStock);
+            string message = await bookService.BuyBookAsync(wId, bId, inStock);
 
             Console.WriteLine(message);
         }

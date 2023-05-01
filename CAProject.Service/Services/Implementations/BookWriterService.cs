@@ -33,8 +33,8 @@ namespace CAProject.Service.Services.Implementations
             BookWriter bookwriter = await _repository.GetAsync(w => w.Id == id);
 
             if (bookwriter == null)
-            { return "restaurant not found"; }
-
+            { return "Author not found"; }
+            
             await _repository.RemoveAsync(bookwriter);
 
             Console.ForegroundColor = ConsoleColor.Green;
